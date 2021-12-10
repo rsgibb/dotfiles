@@ -1,0 +1,9 @@
+/** Basic config file **/
+configuration {
+  show-icons: true;
+  font: "Noto Sans Mono 11";
+}
+
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+//@theme "/usr/share/rofi/themes/Pop-Dark.rasi"
+@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"

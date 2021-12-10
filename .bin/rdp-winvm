@@ -1,0 +1,4 @@
+#!/bin/bash
+# /rfx /rfx-mode:video
+
+xfreerdp /fonts /f /u:ronal /v:192.168.1.41 /bpp:24 -grab-keyboard +window-drag -wallpaper /multimon $@

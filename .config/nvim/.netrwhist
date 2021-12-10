@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/howler/.config/dolphin-emu'
+let g:netrw_dirhist_5='/home/howler/Development/todo/.git'
+let g:netrw_dirhist_4='/home/howler/.config/i3'
+let g:netrw_dirhist_3='/mnt/data/restore/etc/default'
+let g:netrw_dirhist_2='/mnt/data/restore/etc'
+let g:netrw_dirhist_1='/mnt/data/restore'

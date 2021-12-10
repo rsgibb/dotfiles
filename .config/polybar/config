@@ -1,0 +1,288 @@
+[color]
+c1 = #3b4252
+c2 = #434c5e
+c3 = #4c566a
+c4 = #d8dee9
+c5 = #e5e9f0
+c6 = #eceff4
+c7 = #8fbcbb
+c8 = #88c0d0
+c9 = #81a1c1
+c10 = #5e81ac
+c11 = #bf616a
+c12 = #d08770
+c13 = #ebcb8b
+c14 = #a3be8c
+c15 = #b48ead
+highlight = #505B75
+bg = #000000
+fg = #d8dee9
+
+[vars]
+spacing = 1.5
+
+[bar/main]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 26
+offset-y = 0
+offset-x = 0
+
+;border-top-size = 5
+;border-bottom-size = 0
+;border-right-size = 5
+;border-left-size = 5
+
+monitor = ${env:MONITOR} 
+wm-restack = none
+override-redirect = false
+
+font-0 = "NotoSansMono Nerd Font:size=10;2"
+font-1 = "NotoSansMono Nerd Font:size=18;4"
+
+background = ${color.bg}
+foreground = ${color.fg}
+
+fixed-center = true
+padding-left = 1 
+padding-right = 1
+module-margin = ${vars.spacing}
+
+modules-left = i3
+modules-center = date time
+modules-right = network cpu mem disk volume power
+
+tray-position = right
+tray-underline = ${color.c4}
+line-size = 3
+
+; end of main/bar
+
+[gloabl/wm]
+margin-bottom = 0
+margin-top = 0
+
+;---------;
+; MODULES ;
+;---------;
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+enable-scroll = true
+enable-click = true
+format = <label-state> <label-mode>
+
+label-focused = %index%
+label-focused-underline = ${color.c10}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+label-visible = %index%
+label-visible-underline = ${color.c3}
+label-visible-padding = 1
+
+label-urgent = %index%
+label-urgent-underline = ${color.c11}
+label-urgent-padding = 1
+
+
+[module/time]
+type = internal/date
+
+interval = 1.0
+
+date =  %H:%M
+
+[module/date]
+type = internal/date
+date =  %e %B - %A
+label = %date%
+
+
+[module/battery]
+type = internal/battery
+
+battery = BAT1
+
+poll-interval = 1
+
+full-at = 95
+
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-volume-underline = ${color.c9}
+format-volume-padding = ${vars.spacing}
+label-volume = %percentage%%
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+label-muted = "ﱝ Muted"
+label-muted-padding = ${vars.spacing}
+label-muted-underline = ${color.c9}
+click-right = pavucontrol &
+
+[module/mpd]
+type = internal/mpd
+
+label-offline = mpd is offline
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+format-offline = <label-offline>
+host = 127.0.0.1
+port = 6600
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = radeon_bl0
+
+format = <ramp> <label>
+
+label = %percentage%%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/wlan]
+type = internal/network
+
+interface = wlp2s0
+
+interval = 5
+
+label-connected =  %essid%
+label-disconnected =  Not Connected
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format = <label>
+label =  %percentage%%
+label-padding = ${vars.spacing}
+label-underline = ${color.c14}
+
+
+[module/mem]
+type = internal/memory
+interval = 1
+label =  %gb_free%
+format = <label>
+label-padding = ${vars.spacing}
+label-underline = ${color.c12}
+
+
+[module/network]
+type = internal/network
+interface = br0 
+format-connected = <label-connected>
+label-connected =  %downspeed% |  %upspeed%
+label-connected-padding = ${vars.spacing}
+label-connected-underline = ${color.c9}
+label-disconnected = 睊 disconnected
+label-disconnected-padding = ${vars.spacing}
+label-disconnected-underline = ${color.c12}
+
+[module/updates]
+type = custom/script
+exec = /usr/bin/yay -Qu | wc -l
+format = <label>
+interval = 60
+label =  %output% updates
+label-padding = ${vars.spacing}
+label-underline = ${color.c7}
+
+[module/power]
+type = custom/menu
+expand-right = true
+label-open = 拉
+label-close = 拉
+label-separator = "  "
+label-open-padding = 1
+label-close-padding = 1
+label-open-underline = ${color.c11}
+label-close-underline = ${color.c11}
+
+menu-0-0 = poweroff
+menu-0-0-exec = menu-open-1
+menu-0-0-underline = ${color.c11}
+menu-1-0 = confirm
+menu-1-0-exec = poweroff &
+menu-1-0-underline = ${color.c11}
+menu-1-1 = cancel
+menu-1-1-exec = menu-open-0
+menu-1-1-underline = ${color.c11}
+
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-2
+menu-0-1-underline = ${color.c11}
+menu-2-0 = confirm
+menu-2-0-exec = reboot &
+menu-2-0-underline = ${color.c11}
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+menu-2-1-underline = ${color.c11}
+
+menu-0-2 = lock
+menu-0-2-exec = i3lock -c 000000
+menu-0-2-underline = ${color.c11}
+
+menu-0-3 = logout
+menu-0-3-exec = menu-open-3
+menu-0-3-underline = ${color.c11}
+menu-3-0 = logout
+menu-3-0-exec = i3-msg exit
+menu-3-0-underline = ${color.c11}
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+menu-3-1-underline = ${color.c11}
+
+menu-0-4 = switch user
+menu-0-4-exec = dm-tool switch-to-greeter
+menu-0-4-underline = ${color.c11}
+
+[module/disk]
+type = internal/fs
+mount-0 = /
+interval = 10
+label-mounted =  %free%
+label-mounted-padding = ${vars.spacing}
+label-mounted-underline = ${color.c7}
+click-left = nautilus &
