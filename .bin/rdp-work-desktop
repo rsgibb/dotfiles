@@ -1,4 +1,17 @@
 #!/bin/bash
 # /rfx /rfx-mode:video
 
-xfreerdp /fonts /f /u:he52610 /d:HDWA /v:E00179446VM1  -grab-keyboard +window-drag -wallpaper /multimon /sec:tls /sound /microphone $@
+# /monitors:0,1 -- xorg
+
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    COMMAND=wlfreerdp
+else
+    COMMAND=xfreerdp
+fi
+
+COMMAND=xfreerdp
+
+$COMMAND /fonts /f /u:he52610 /d:HDWA /v:192.168.1.27 \
+    -grab-keyboard +window-drag -wallpaper /rfx /multimon:force \
+    /monitors:0,1 /sec:tls /sound /microphone $@
+

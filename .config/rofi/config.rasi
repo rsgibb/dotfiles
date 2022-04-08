@@ -6,4 +6,6 @@ configuration {
 
 //@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
 //@theme "/usr/share/rofi/themes/Pop-Dark.rasi"
+//@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"
+//@theme "/usr/share/rofi/themes/arthur.rasi"
 @theme "/usr/share/rofi/themes/glue_pro_blue.rasi"

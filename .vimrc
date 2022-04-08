@@ -9,9 +9,16 @@ syntax on
 set autoindent
 set autowrite
 set ruler
+set showcmd
+set wildmenu
 
 " search
 set smartcase
 set ignorecase
 
 set splitbelow splitright
+
+call plug#begin()
+call plug#end()
+
+

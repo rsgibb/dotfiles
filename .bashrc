@@ -25,7 +25,19 @@ fi
 
 alias vim="nvim"
 alias oldvim="\vim"
-alias ls="exa"
+alias ls="lsd"
 
 export CM_LAUNCHER=rofi
+export LIBVA_DRIVER_NAME=vdpau
+export VDPAU_DRIVER=nvidia
+export TERMINAL=/usr/bin/tilix
+#function menu()
+#{
+#    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+#        wofi --dmenu -p "$1"
+#    else
+#        rofi -dmenu -P "$1"
+#    fi   
+#}
+
 # eval "$(starship init bash)"
