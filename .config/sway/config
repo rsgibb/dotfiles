@@ -181,10 +181,10 @@ bindsym $mod2+r mode "resize"
 #}
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks|awk '/\* index:/{ print $3 }') +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks|awk '/\* index:/{ print $3 }') -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks|awk '/\* index:/{ print $3 }') toggle # mute sound
-bindsym XF86AudioMicMute exec pactl set-source-mute  $(pacmd list-sources|awk '/\* index:/{ print $3 }') toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl get-default-sink) +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl get-default-sink) -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl get-default-sink) toggle # mute sound
+bindsym XF86AudioMicMute exec pactl set-source-mute  $(pactl get-default-source) toggle
 
 # %%hotkey: Select Audio Sink %%
 bindsym $mod+o exec ~/.bin/pa-select-sink.sh
