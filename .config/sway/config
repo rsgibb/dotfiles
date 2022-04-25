@@ -1,3 +1,7 @@
+output DP-1 res 1920x1080@75Hz
+output HDMI-A-1 res 2560x1440@75Hz
+output DP-2 res 1920x1080@75Hz
+
 # display layout
 output DP-1 pos 0 320 adaptive_sync on
 output HDMI-A-1 pos 1920 0
@@ -194,8 +198,6 @@ bindsym $mod+o exec ~/.bin/pa-select-sink.sh
 #bindsym XF86AudioRaiseVolume exec amixer set Master 3%+ unmute
 #bindsym XF86AudioMicMute exec amixer set Capture toggle
 
-#bindsym XF86ScreenSaver exec betterlockscreen -l dimblur
-#bindsym $mod+l exec betterlockscreen -l dimblur
 bindsym XF86ScreenSaver exec swaylock -c 000000
 # %%hotkey: Lock Screen %%
 bindsym $mod+l exec swaylock -c 000000
@@ -249,14 +251,17 @@ exec waybar
 
 #assign [class="^Steam$"] $ws5
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # dropdown terminal 
-for_window [class="dropdown"] floating enable
-for_window [class="dropdown"] resize set 1200 800
-for_window [class="dropdown"] move scratchpad
-for_window [class="dropdown"] border pixel 1
+for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] resize set 1200 800
+for_window [title="dropdown"] move scratchpad
+for_window [title="dropdown"] border pixel 1
 #for_window [class="dropdown"] move position center
-bindsym Control+Escape [class="dropdown"] scratchpad show
-exec tilix --new-process --class=dropdown --profile=Dropdown
+bindsym Control+Escape [title="dropdown"] scratchpad show
+exec tilix --new-process --profile=Dropdown
 
 for_window [class="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
@@ -270,7 +275,7 @@ exec /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 exec /usr/bin/imwheel
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec /usr/bin/blueman-applet 
-exec systemctl --user start clipmenud.service
+#exec systemctl --user start clipmenud.service
 
 exec swayidle -w \
 	timeout 600 'swaylock -f -c 000000' \

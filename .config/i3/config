@@ -196,10 +196,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks|awk '/\* index:/{ print $3 }') +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks|awk '/\* index:/{ print $3 }') -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks|awk '/\* index:/{ print $3 }') toggle # mute sound
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute  $(pacmd list-sources|awk '/\* index:/{ print $3 }') toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl get-default-sink) +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl get-default-sink) -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl get-default-sink)  toggle # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute  $(pacmd get-default-source) toggle
 
 # %%hotkey: Select Audio Sink %%
 bindsym $mod+o exec --no-startup-id ~/.bin/pa-select-sink.sh
@@ -281,7 +281,7 @@ for_window [class="dropdown"] border pixel 1
 bindsym Control+Escape [class="dropdown"] scratchpad show
 exec --no-startup-id tilix --new-process --class=dropdown --profile=Dropdown
 
-for_window [class="origin.exe"] floating enable
+for_window [instance="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
 
 bindsym $mod+b [class="Barrier"] scratchpad show
