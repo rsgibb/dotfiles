@@ -59,6 +59,9 @@ Plug 'projekt0n/github-nvim-theme'
 " Jellybeans theme
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 
+" Moonfly theme
+Plug 'bluz71/vim-moonfly-colors'
+
 " nvim-dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
@@ -292,4 +295,4 @@ require('bufferline').setup{}
 END
 
 let g:dap_virtual_text = v:true
-colorscheme github_dark_default
+colorscheme moonfly
