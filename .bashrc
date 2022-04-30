@@ -14,7 +14,7 @@ fi
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias lazycfg='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export PATH=$PATH:~/.bin:~/.local/bin
 
