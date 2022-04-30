@@ -28,6 +28,7 @@ alias vim="nvim"
 alias oldvim="\vim"
 #alias ls="lsd"
 alias ls="exa --icons"
+alias fzo='handlr open "$(fzf)"'
 
 export CM_LAUNCHER=rofi
 export LIBVA_DRIVER_NAME=vdpau
@@ -39,6 +40,7 @@ function sudoedit() {
     SUDO_COMMAND="sudoedit $@" command sudoedit "$@"
 }
 
+export FZF_DEFAULT_OPTS='--ansi --preview "bat --color=always --style=header,grid --line-range :300 {}"'
 #function menu()
 #{
 #    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
