@@ -33,8 +33,9 @@ alias fzo='handlr open "$(fzf)"'
 export CM_LAUNCHER=rofi
 export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=nvidia
-export TERMINAL=/usr/bin/tilix
+export TERMINAL=/usr/bin/alacritty
 export EDITOR=/usr/bin/nvim
+export TERM=xterm-256color
 
 function sudoedit() {
     SUDO_COMMAND="sudoedit $@" command sudoedit "$@"
