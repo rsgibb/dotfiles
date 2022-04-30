@@ -56,11 +56,17 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " github neovim theme
 Plug 'projekt0n/github-nvim-theme'
 
+" Jellybeans theme
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
+
 " nvim-dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
+
+" bufferline
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 call plug#end()
 
@@ -99,6 +105,21 @@ nnoremap <leader>dq :lua require('dapui').toggle()<CR>
 
 set completeopt=menu,menuone,noselect
 
+function! s:SudoEditInit() abort
+  let files = split($SUDO_COMMAND, ' ')[1:-1]
+  if len(files) ==# argc()
+    for i in range(argc())
+      execute 'autocmd BufEnter' fnameescape(argv(i))
+            \ 'if empty(&filetype) || &filetype ==# "conf"'
+            \ '|doautocmd filetypedetect BufReadPost '.fnameescape(files[i])
+            \ '|endif'
+    endfor
+  endif
+endfunction
+if $SUDO_COMMAND =~# '^sudoedit '
+  call s:SudoEditInit()
+endif
+
 
 lua << END
 -- Setup lualine
@@ -116,7 +137,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
-    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -198,7 +219,19 @@ cmp.setup({
   })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+require('lspconfig').powershell_es.setup {
+  bundle_path = '~/Development/PowerShellEditorServices',
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    -- This will be the default in neovim 0.7+
+    debounce_text_changes = 150,
+  }
+}
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -212,6 +245,7 @@ require('lspconfig')[lsp].setup {
     debounce_text_changes = 150,
   }
 }
+
 end
 
 -- Setup nvim-treesitter
@@ -252,7 +286,8 @@ require('dapui').setup()
 require('telescope').setup()
 require('telescope').load_extension('dap')
 
-
+-- Setup bufferline
+require('bufferline').setup{}
 
 END
 
