@@ -62,6 +62,9 @@ Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 " Moonfly theme
 Plug 'bluz71/vim-moonfly-colors'
 
+" Tender theme
+Plug 'jacoborus/tender.vim'
+
 " nvim-dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
