@@ -279,7 +279,7 @@ for_window [class="dropdown"] move scratchpad
 for_window [class="dropdown"] border pixel 1
 #for_window [class="dropdown"] move position center
 bindsym Control+Escape [class="dropdown"] scratchpad show
-exec --no-startup-id tilix --new-process --class=dropdown --profile=Dropdown
+exec --no-startup-id $term --class dropdown --config-file $HOME/.config/dropdown.yml
 
 for_window [instance="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
