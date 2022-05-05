@@ -298,4 +298,10 @@ require('bufferline').setup{}
 END
 
 let g:dap_virtual_text = v:true
-colorscheme moonfly
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+colorscheme jellybeans
+
