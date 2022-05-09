@@ -273,13 +273,13 @@ exec --no-startup-id ~/.bin/setbg.sh
 #assign [class="^Steam$"] $ws5
 
 # dropdown terminal 
-for_window [class="dropdown"] floating enable
-#for_window [class="dropdown"] resize set 1200 800
-for_window [class="dropdown"] move scratchpad
-for_window [class="dropdown"] border pixel 1
-#for_window [class="dropdown"] move position center
-bindsym Control+Escape [class="dropdown"] scratchpad show
-exec --no-startup-id $term --class dropdown --config-file $HOME/.config/dropdown.yml
+for_window [title="dropdown"] floating enable
+#for_window [title="dropdown"] resize set 1200 800
+for_window [title="dropdown"] move scratchpad
+for_window [title="dropdown"] border pixel 1
+#for_window [title="dropdown"] move position center
+bindsym Control+Escape [title="dropdown"] scratchpad show
+exec --no-startup-id $term --class dropdown --title dropdown --config-file $HOME/.config/alacritty/dropdown.yml
 
 for_window [instance="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
