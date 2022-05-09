@@ -2,8 +2,7 @@
 
 function list_sinks() 
 {
-    sinks=$(pactl list sinks short) || return 1
-    #sinks=$(echo "$sinks" | sed -r "s/alsa_output\.(usb-|pci-[0-9]{4}_[0-9]{2}_[0-9]{2}\.[0-9].)//g")
+    sinks=$(pactl list sinks | grep -e 'Sink #' -e device.description | sed ':a;N;$!ba;s/\n\s*device.description = /\t/g' | sed 's/Sink #//g' | tr -d '"')
     echo "$sinks" | sed -e "s/\t/\ /g"
 }
 
@@ -20,6 +19,6 @@ function select_sink()
 }
 
 SINK=$(list_sinks | rofi -dmenu -P 'audio sink')
-SINK=$(echo "$SINK" | cut -f 1 -d " ")
+SINK=$(echo "$SINK" | awk '{ print $1 }')
 
 select_sink "$SINK"
