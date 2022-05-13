@@ -28,6 +28,7 @@ alias vim="nvim"
 alias oldvim="\vim"
 #alias ls="lsd"
 alias ls="exa --icons"
+alias ll="ls -l"
 alias fzo='handlr open "$(fzf)"'
 
 export CM_LAUNCHER=rofi
