@@ -259,7 +259,8 @@ bindsym $mod+d exec --no-startup-id ~/.bin/select-screen-layout.sh
 # %%hotkey: Start Virtual Machine %%
 bindsym shift+$mod+v exec --no-startup-id ~/.bin/start-vm.sh
 bindsym shift+$mod+h exec --no-startup-id "~/.local/bin/dmenu_hotkeys run --menu rofi --app i3"
-
+bindsym shift+$mod2+e exec --no-startup-id "rofi -show emoji -modi emoji"
+bindsym shift+$mod2+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
 #exec_always --no-startup-id $HOME/.screenlayout/triplet.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
