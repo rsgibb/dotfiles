@@ -227,7 +227,7 @@ for_window [class="Spotify"] border pixel 0
 for_window [class="Code"] border pixel 0
 
 for_window [class=Pavucontrol|Lxappearance|Arandr|xfreerdp|Evince] floating enable
-#for_window [class="Nautilus"] floating enable
+# for_window [class="Nautilus"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="^Steam$" title="^Friends$"] resize width 220
 for_window [class="Barrier"] move scratchpad
@@ -236,20 +236,20 @@ for_window [class="Barrier"] move scratchpad
 bindsym $mod+m bar mode toggle
 
 bindsym $mod+space exec --no-startup-id "rofi -show drun -modi drun"
-#bindsym $mod+o exec --no-startup-id "rofi -show ssh"
-#bindsym $mod+n exec --no-startup-id "networkmanager_dmenu"
+# bindsym $mod+o exec --no-startup-id "rofi -show ssh"
+# bindsym $mod+n exec --no-startup-id "networkmanager_dmenu"
 # %%hotkey: Show Clipboard History %%
 bindsym $mod+c exec --no-startup-id "CM_LAUNCHER=rofi clipmenu"
 bindsym $mod+p exec --no-startup-id "pavucontrol"
 bindsym $mod2+Tab exec --no-startup-id "rofi -show window"
 bindsym $mod+r exec --no-startup-id "rofi -show run"
-#new_window pixel 1
+# new_window pixel 1
 bindsym $mod+t exec --no-startup-id "$term -e htop"
 
 # %%hotkey: Take Screenshot %%
 bindsym $mod+Delete --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-#bindsym $mod+Shift+Delete exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+# bindsym $mod+Shift+Delete exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # press ~ to claim a new workspace
 # %%hotkey: New Workspace %%
 bindsym $mod2+shift+Escape exec --no-startup-id ~/.bin/i3-new-workspace
@@ -261,6 +261,7 @@ bindsym shift+$mod+v exec --no-startup-id ~/.bin/start-vm.sh
 bindsym shift+$mod+h exec --no-startup-id "~/.local/bin/dmenu_hotkeys run --menu rofi --app i3"
 bindsym shift+$mod2+e exec --no-startup-id "rofi -show emoji -modi emoji"
 bindsym shift+$mod2+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
+bindsym shift+$mod2+h exec --no-startup-id ~/.bin/notify-hs-battery
 
 #exec_always --no-startup-id $HOME/.screenlayout/triplet.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -285,7 +286,7 @@ exec --no-startup-id $term --class dropdown --title dropdown --config-file $HOME
 for_window [instance="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
 
-bindsym $mod+b [class="Barrier"] scratchpad show
+#bindsym $mod+b [class="Barrier"] scratchpad show
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play 
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
