@@ -286,7 +286,7 @@ exec --no-startup-id $term --class dropdown --title dropdown --config-file $HOME
 for_window [instance="origin.exe"] floating enable
 for_window [class="Blueberry.py"] floating enable
 
-#bindsym $mod+b [class="Barrier"] scratchpad show
+bindsym $mod+b [class="Barrier"] scratchpad show
 
 bindsym XF86AudioPlay exec --no-startup-id playerctl play 
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
