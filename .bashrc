@@ -28,6 +28,7 @@ alias vim="nvim"
 alias oldvim="\vim"
 #alias ls="lsd"
 alias ls="exa --icons"
+alias tree="exa --tree --icons"
 alias ll="ls -l"
 alias fzo='handlr open "$(fzf)"'
 
