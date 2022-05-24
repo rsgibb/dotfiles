@@ -13,7 +13,7 @@ function select_sink()
     
     echo switching applications
     pactl list sink-inputs |
-      awk -F '#' '/Sink Input:/{print $2}' |
+      awk -F '#' '/Sink Input./{print $2}' |
       xargs -r -I{} pactl move-sink-input {} "$1" ||
       echo failed
 }
