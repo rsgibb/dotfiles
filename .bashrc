@@ -37,7 +37,10 @@ export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=nvidia
 export TERMINAL=/usr/bin/alacritty
 export EDITOR=/usr/bin/nvim
-export TERM=xterm-256color
+
+if [[ "$TERM" == "alacritty" ]]; then
+    export TERM=xterm-256color
+fi
 
 function sudoedit() {
     SUDO_COMMAND="sudoedit $@" command sudoedit "$@"
