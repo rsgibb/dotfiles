@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-hsetroot -solid "#000000"
+hsetroot -full ~/Pictures/dracula/arch.png

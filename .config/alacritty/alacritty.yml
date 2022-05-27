@@ -8,7 +8,9 @@ font:
   normal:
     family: Fira Code
 
-colors:
-  primary:
-    background: '#000000'
+#colors:
+#  primary:
+#    background: '#000000'
 
+import:
+  - /usr/share/alacritty/dracula.yml

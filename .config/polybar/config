@@ -15,8 +15,10 @@ c13 = #ebcb8b
 c14 = #a3be8c
 c15 = #b48ead
 highlight = #505B75
-bg = #000000
+bg = #282a36
 fg = #d8dee9
+
+
 
 [vars]
 spacing = 1.5

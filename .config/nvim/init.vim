@@ -65,6 +65,8 @@ Plug 'bluz71/vim-moonfly-colors'
 " Tender theme
 Plug 'jacoborus/tender.vim'
 
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " nvim-dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
@@ -303,5 +305,5 @@ if has('termguicolors')
   set termguicolors
 endif
 
-colorscheme jellybeans
+colorscheme dracula
 
