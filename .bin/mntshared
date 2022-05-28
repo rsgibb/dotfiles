@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-#echo -e "howler\nnebula" | gio mount smb://draconis/shared 
-gio mount smb://draconis/shared 
-
-#sshfs howler@draconis.nebula.home:/mnt/zpool0/shared ~/Shared -o idmap=user,cipher=arcfour,compression=no
