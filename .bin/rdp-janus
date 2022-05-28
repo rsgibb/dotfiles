@@ -1,4 +1,0 @@
-#!/bin/bash
-# /rfx /rfx-mode:video
-
-xfreerdp +fonts /f /u:howler /v:janus -grab-keyboard +window-drag # /multimon
