@@ -1,4 +1,0 @@
-#!/bin/bash
-# /rfx /rfx-mode:video
-
-xfreerdp +fonts /f /u:ronal /v:andromeda -grab-keyboard +window-drag /multimon
