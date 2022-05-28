@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xfreerdp /fonts /u:he52610 /v:E00179446  -grab-keyboard +window-drag /rfx /rfx-mode:video /app:"$1" 
