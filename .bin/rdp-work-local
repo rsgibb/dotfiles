@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xfreerdp /fonts /f /u:he52610 /v:kerberos.nebula.home  -grab-keyboard +window-drag /rfx /rfx-mode:video $@
