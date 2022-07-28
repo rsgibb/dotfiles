@@ -9,7 +9,7 @@ layout=$(echo "$layouts" | rofi -dmenu -P 'screen layout')
 if [ -n "$layout" ]; then
     layout="${dir}/${layout}.sh"
     $layout
-    i3-msg restart
     setbg.sh
+    i3-msg restart
 fi
 
