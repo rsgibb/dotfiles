@@ -240,7 +240,7 @@ for_window [class=Pavucontrol|Lxappearance|Arandr|xfreerdp|Evince] floating enab
 # for_window [class="Nautilus"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="^Steam$" title="^Friends$"] resize width 220
-for_window [class="Barrier"] move scratchpad
+#for_window [class="Barrier"] move scratchpad
 
 # bar toggle, hide or show 
 bindsym $mod+m bar mode toggle
@@ -273,6 +273,8 @@ bindsym shift+$mod2+e exec --no-startup-id "rofi -show emoji -modi emoji"
 bindsym shift+$mod2+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 bindsym shift+$mod2+h exec --no-startup-id ~/.bin/notify-hs-battery
 
+
+exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 #exec_always --no-startup-id $HOME/.screenlayout/triplet.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec --no-startup-id picom -cCzG -t-3 -l-5 -r4 --config /dev/null --backend glx --unredir-if-possible
@@ -307,4 +309,5 @@ exec --no-startup-id /usr/bin/imwheel
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id /usr/bin/blueman-applet 
 exec --no-startup-id systemctl --user start clipmenud.service
+
 exec_always --no-startup-id autotiling

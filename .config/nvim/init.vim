@@ -28,8 +28,10 @@ call plug#begin()
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
-" lspconfig
+" lspconfig and installer
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'mfussenegger/nvim-jdtls'
 
 " PowerShell
 Plug 'pprovost/vim-ps1'
