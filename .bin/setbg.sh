@@ -2,4 +2,4 @@
 
 #hsetroot -full ~/Pictures/dracula/arch.png
 
-hsetroot -solid "#282a36"
+hsetroot -solid "#000000"
