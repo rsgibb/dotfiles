@@ -2,6 +2,8 @@ window:
   padding:
     x: 5
     y: 5
+  opacity: 0.8
+  decorations: none
 
 font:
   size: 10.0
@@ -12,5 +14,5 @@ colors:
   primary:
     background: '#000000'
 
-      #import:
-      #  - /usr/share/alacritty/dracula.yml
+import:
+    - ~/.config/alacritty/themes/blood_moon.yml

@@ -28,7 +28,7 @@ floating_modifier $mod
 set $term alacritty
 
 # start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec --no-startup-id $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -222,9 +222,9 @@ bindsym $mod+o exec --no-startup-id ~/.bin/pa-select-sink.sh
 
 #bindsym XF86ScreenSaver exec --no-startup-id betterlockscreen -l dimblur
 #bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
-bindsym XF86ScreenSaver exec --no-startup-id i3lock -c 000000; exec --no-startup-id xset dpms force off
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -c 000000
 # %%hotkey: Lock Screen %%
-bindsym $mod+l exec --no-startup-id i3lock -c 000000; exec --no-startup-id xset dpms force off
+bindsym $mod+l exec --no-startup-id i3lock -c 000000
 
 # Gaps
 gaps inner 8
@@ -257,8 +257,8 @@ bindsym $mod+r exec --no-startup-id "rofi -show run"
 bindsym $mod+t exec --no-startup-id "$term -e htop"
 
 # %%hotkey: Take Screenshot %%
-bindsym $mod+Delete --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $mod+Delete --release exec --no-startup-id "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Print --release exec --no-startup-id "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # bindsym $mod+Shift+Delete exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # press ~ to claim a new workspace
 # %%hotkey: New Workspace %%
