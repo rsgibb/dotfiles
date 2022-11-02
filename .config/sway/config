@@ -1,24 +1,31 @@
-output DP-1 res 1920x1080@75Hz
-output HDMI-A-1 res 2560x1440@75Hz
+
+# resolution & refresh
+output DP-1 res 3440x1440@144Hz
 output DP-2 res 1920x1080@75Hz
 
 # display layout
-output DP-1 pos 0 320 adaptive_sync on
-output HDMI-A-1 pos 1920 0
-output DP-2 pos 4480 320 adaptive_sync on
+output DP-1 pos 1080 0 adaptive_sync off
+output DP-2 pos 0 0 adaptive_sync off
+
+# vertical display
+output DP-2 transform 270
 
 # workspace bindings
 workspace 1 output DP-1
-workspace 2 output HDMI-A-1
-workspace 3 output DP-2
-workspace 4 output DP-1
-workspace 5 output HDMI-A-1
+workspace 2 output DP-2
+workspace 3 output DP-1
+workspace 4 output DP-2
+workspace 5 output DP-1
 workspace 6 output DP-2
 workspace 7 output DP-1
-workspace 8 output HDMI-A-1
-workspace 9 output DP-2
+workspace 8 output DP-2
+workspace 9 output DP-1
 
 output * background #000000 solid_color
+
+# input
+input 1133:16500:Logitech_G305 pointer_accel -0.65
+
 
 set $mod Mod4
 set $mod2 Mod1
@@ -28,7 +35,7 @@ font pango: Noto Sans Mono, 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-set $term tilix
+set $term alacritty
 
 default_border pixel 1
 
@@ -221,7 +228,7 @@ for_window [class="Barrier"] move scratchpad
 # bar toggle, hide or show 
 bindsym $mod+m bar mode toggle
 
-bindsym $mod+space exec "rofi -show drun"
+bindsym $mod+space exec "bash -c 'MOZ_ENABLE_WAYLAND=1 rofi -show drun'"
 #bindsym $mod+o exec "rofi -show ssh"
 #bindsym $mod+n exec "networkmanager_dmenu"
 # %%hotkey: Show Clipboard History %%
@@ -233,7 +240,7 @@ bindsym $mod+r exec "rofi -show run"
 bindsym $mod+t exec "$term -e htop"
 
 # %%hotkey: Take Screenshot %%
-#bindsym $mod+Delete --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $mod+Delete exec ~/.bin/wl-screenshot.sh
 #bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 #bindsym $mod+Shift+Delete exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # press ~ to claim a new workspace
@@ -246,7 +253,6 @@ bindsym $mod2+shift+grave exec ~/.bin/sway-new-workspace
 bindsym shift+$mod+v exec ~/.bin/start-vm.sh
 #bindsym shift+$mod+h exec "~/.local/bin/dmenu_hotkeys run --menu rofi --app i3"
 
-exec waybar
 #exec synergyc --enable-crypto andromeda
 
 #assign [class="^Steam$"] $ws5
@@ -287,3 +293,4 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 exec_always autotiling
+exec waybar

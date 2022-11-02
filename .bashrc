@@ -33,8 +33,8 @@ alias ll="ls -l"
 alias fzo='handlr open "$(fzf)"'
 
 export CM_LAUNCHER=rofi
-export LIBVA_DRIVER_NAME=vdpau
-export VDPAU_DRIVER=nvidia
+#export LIBVA_DRIVER_NAME=vdpau
+#export VDPAU_DRIVER=nvidia
 export TERMINAL=/usr/bin/alacritty
 export EDITOR=/usr/bin/nvim
 
@@ -47,6 +47,9 @@ function sudoedit() {
 }
 
 export FZF_DEFAULT_OPTS='--ansi --preview "bat --color=always --style=header,grid --line-range :300 {}"'
+
+export MOZ_ENABLE_WAYLAND=1
+
 #function menu()
 #{
 #    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then

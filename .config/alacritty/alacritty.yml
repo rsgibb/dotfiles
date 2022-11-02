@@ -3,7 +3,6 @@ window:
     x: 5
     y: 5
   opacity: 0.8
-  decorations: none
 
 font:
   size: 10.0
